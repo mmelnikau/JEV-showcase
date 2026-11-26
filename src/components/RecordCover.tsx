@@ -1,25 +1,32 @@
-import type { Vinyl } from "@/data/records";
+import Image from "next/image";
+import type { Album } from "@/lib/album";
 
-/** A record sleeve drawn with CSS, with the vinyl peeking out on the right. */
-export function RecordCover({ record }: { record: Vinyl }) {
-  const [dark, light] = record.colors;
-
+/** Album sleeve with the vinyl peeking out on the right. */
+export function RecordCover({
+  album,
+  sizes,
+  priority,
+}: {
+  album: Album;
+  sizes: string;
+  priority?: boolean;
+}) {
   return (
     <div className="group relative aspect-square w-full">
       <div className="absolute inset-y-[4%] right-0 aspect-square h-[92%] rounded-full bg-[repeating-radial-gradient(circle,#111_0_2px,#222_2px_4px)] shadow-lg transition-transform duration-500 group-hover:translate-x-[12%]">
-        <div
-          className="absolute inset-[34%] rounded-full"
-          style={{ background: light }}
-        />
+        <div className="absolute inset-[34%] overflow-hidden rounded-full">
+          <Image src={album.cover} alt="" fill sizes="80px" className="object-cover" />
+        </div>
       </div>
-      <div
-        className="relative flex aspect-square w-[88%] flex-col justify-end rounded-sm p-4 shadow-xl"
-        style={{ background: `linear-gradient(135deg, ${dark}, ${light})` }}
-      >
-        <p className="text-lg font-bold leading-tight text-white drop-shadow">
-          {record.title}
-        </p>
-        <p className="text-sm text-white/80 drop-shadow">{record.artist}</p>
+      <div className="relative aspect-square w-[88%] overflow-hidden rounded-sm bg-foreground/10 shadow-xl">
+        <Image
+          src={album.cover}
+          alt={`${album.title} by ${album.artist}`}
+          fill
+          sizes={sizes}
+          priority={priority}
+          className="object-cover"
+        />
       </div>
     </div>
   );

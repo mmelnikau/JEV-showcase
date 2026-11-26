@@ -37,7 +37,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           {children}
         </main>
         <footer className="border-t border-foreground/10 py-6 text-center text-sm text-foreground/50">
-          Groove Shelf — a showcase store. All records are fictional.
+          Groove Shelf — a showcase store. Nothing here is for sale.
         </footer>
       </body>
     </html>
