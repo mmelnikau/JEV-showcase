@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -25,10 +26,17 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
-        <header className="border-b border-foreground/10">
+        <header className="sticky top-0 z-50 border-b border-foreground/10 bg-surface">
           <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
-            <Link href="/" className="text-xl font-bold tracking-tight">
-              ◉ Groove Shelf
+            <Link href="/" aria-label="Home">
+              <Image
+                src="/logo.png"
+                alt=""
+                width={598}
+                height={187}
+                priority
+                className="h-10 w-auto"
+              />
             </Link>
             <span className="text-sm text-foreground/60">Vinyl records</span>
           </div>
