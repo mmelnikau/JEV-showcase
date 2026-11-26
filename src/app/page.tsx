@@ -1,6 +1,11 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { RecordCover } from "@/components/RecordCover";
 import { getAlbums } from "@/lib/albums";
+
+export const metadata: Metadata = {
+  title: "Start — JEVinyl",
+};
 
 export default async function Home() {
   const albums = await getAlbums();

@@ -15,8 +15,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Groove Shelf · Vinyl Records",
+  title: "JEVinyl",
   description: "A small vinyl record store showcase.",
+  icons: { icon: "https://canvasreply.com/favicon.ico" },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -38,7 +39,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
                 className="h-10 w-auto"
               />
             </Link>
-            <span className="text-sm text-foreground/60">Vinyl records</span>
+            <span className="text-sm text-foreground/60">JEVinyl - JEV showcase</span>
           </div>
         </header>
         <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-10">
