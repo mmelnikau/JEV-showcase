@@ -14,7 +14,7 @@
 }
 
 body {
-  background: var(--background);
+  background: var(--background) url("/bg-right.png") no-repeat right bottom fixed;
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
